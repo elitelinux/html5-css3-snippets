@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CUalquier Titulo</title>
+</head>
+<body>
+<script type="text/javascript">
+    function roll(n) {
+        var dice = ['\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685'];
+        var results = '';
+        for (var i=0; i<n; i++) {
+            results += dice[Math.floor(Math.random()*6)] + ' ';
+        }
+        return results;
+    }
+    
+    function doRoll(countElem, resultElem) {
+        document.getElementById(resultElem).innerHTML = 
+            roll(parseInt(document.getElementById(countElem).value));
+    }
+    </script>
+    
+    Enter number of Dice to roll:<br><input type="text" id="dice-roll-number" />
+    <input type="button" onclick="doRoll('dice-roll-number', 'dice-roll-result')" value="Roll!" />
+    
+    Result: <span style="font-size: 64px; line-height: normal" id="dice-roll-result"></span>
+</body>
+</html>
